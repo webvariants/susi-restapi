@@ -1,0 +1,8 @@
+{
+    "/api/v1/flower/{id}": {
+        "GET": "flower::get",
+        "POST": "flower::add",
+        "DELETE": "flower::remove",
+        "PATCH": "flower::update"
+    }
+}
