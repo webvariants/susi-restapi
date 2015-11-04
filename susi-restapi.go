@@ -86,6 +86,7 @@ func main() {
 				return
 			}
 			resultPayload := <-result
+			w.Header().Set("Content-Type", "application/json")
 			enc := json.NewEncoder(w)
 			enc.Encode(resultPayload)
 		})
