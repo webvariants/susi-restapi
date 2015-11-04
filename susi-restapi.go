@@ -48,9 +48,10 @@ func main() {
 	r := mux.NewRouter()
 
 	for endpoint, specifier := range mapping {
+		var spec = specifier
 		r.HandleFunc(endpoint, func(w http.ResponseWriter, r *http.Request) {
-			topic := specifier[r.Method]
-			if _, ok := specifier[r.Method]; !ok {
+			topic := spec[r.Method]
+			if _, ok := spec[r.Method]; !ok {
 				w.WriteHeader(http.StatusNotFound)
 				return
 			}
